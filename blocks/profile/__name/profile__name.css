@@ -1,0 +1,13 @@
+.profile__name {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    /* or 114% */
+    color: #FFFFFF;
+    max-width: 294px;
+    max-height: 39px;
+    margin: 0;
+    align-self: flex-end;
+}
