@@ -8,4 +8,18 @@
     max-width: 294px;
     max-height: 18px;
     margin: 0;
+    padding: 0 0 7px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 920px) {
+    .profile__job {
+        font-size: 14px;
+        line-height: 17px;
+        padding-left: 81px;
+        text-align: center;
+        padding: 0 0 0 14px;
+    }
 }

@@ -3,5 +3,14 @@
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     column-gap: 18px;
-    row-gap: 16px;
+}
+
+@media screen and (max-width: 920px) {
+    .profile__info {
+        display: grid;
+        margin: 26px auto 36px auto;
+        max-width: 282px;
+        flex-wrap: wrap;
+        column-gap: 0;
+    }
 }

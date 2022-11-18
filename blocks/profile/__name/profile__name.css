@@ -10,4 +10,20 @@
     max-height: 39px;
     margin: 0;
     align-self: flex-end;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 0 16px 0;
+}
+
+@media screen and (max-width: 920px) {
+    .profile__name {
+        display: inline-block;
+        font-family: 'Inter';
+        font-size: 27px;
+        line-height: 33px;
+        text-align: center;
+        padding: 0 0 14px 14px;
+        max-width: 189px;
+    }
 }

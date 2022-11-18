@@ -6,4 +6,18 @@
     background-color: black;
     align-self: center;
     margin: 0 0 0 auto;
+    padding: 0;
+}
+
+.profile__addbutton:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 920px) {
+    .profile__addbutton {
+        width: 100%;
+        max-width: 282px;
+        margin: 0;
+    }
 }

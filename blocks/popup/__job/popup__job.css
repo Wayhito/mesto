@@ -1,0 +1,20 @@
+.popup__job {
+    margin-bottom: 48px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-style: none none solid none;
+    height: 27px;
+}
+
+.popup__job::placeholder {
+    color: #000;
+}
+
+.popup__job:focus::placeholder {
+    color: transparent;
+}
+
+@media screen and (max-width: 920px) {
+    .popup__job {
+        margin-bottom: 45px;
+    }
+}

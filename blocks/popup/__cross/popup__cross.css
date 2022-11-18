@@ -1,0 +1,17 @@
+.popup__cross {
+    margin-right: -40px;
+    margin-bottom: 8px;
+}
+
+.popup__cross:hover {
+    cursor: url("https://cdn.7tv.app/emote/612e995da757c3865535a31f/3x"), pointer;
+}
+
+@media screen and (max-width: 920px) {
+    .popup__cross {
+        width: 20px;
+       height: 20px;
+       margin-bottom: 16px;
+       margin-right: 0;
+    }
+}
