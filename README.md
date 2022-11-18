@@ -15,4 +15,4 @@ CSS Grid Layout
 JavaScript, переменные, функции
 
 **GitHub Pages**
-* [Ссылка на проект в GutHub Papes]()
+* [Ссылка на проект в GutHub Papes](https://wayhito.github.io/mesto/)
