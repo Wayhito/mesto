@@ -4,14 +4,15 @@
 }
 
 .popup__cross:hover {
-    cursor: url("https://cdn.7tv.app/emote/612e995da757c3865535a31f/3x"), pointer;
+    cursor: url("https://i.imgur.com/gfpk0K1.png"), url(../../../images/sword.png), pointer;
+    opacity: 0.6;
 }
 
 @media screen and (max-width: 920px) {
     .popup__cross {
         width: 20px;
-       height: 20px;
-       margin-bottom: 16px;
-       margin-right: 0;
+        height: 20px;
+        margin-bottom: 16px;
+        margin-right: 0;
     }
 }
