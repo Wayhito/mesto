@@ -1,11 +1,11 @@
 .element__name {
-    font-family: 'Inter';
+    font-family: 'Inter', ‘Arial’, sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
     line-height: 29px;
     color: #000000;
-    margin: auto 0 auto 21px;
+    margin: 28px 0 28px 21px;
     padding: 0;
     text-overflow: ellipsis;
     white-space: nowrap;

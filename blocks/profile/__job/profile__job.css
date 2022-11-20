@@ -1,5 +1,5 @@
 .profile__job {
-    font-family: 'Inter';
+    font-family: 'Inter', ‘Arial’, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -20,6 +20,7 @@
         line-height: 17px;
         text-align: center;
         padding: 0;
+        margin: 10px 0 0 0;
         grid-area: job;
     }
 }
