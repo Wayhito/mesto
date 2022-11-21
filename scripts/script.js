@@ -22,10 +22,7 @@ function closePopup() {
 
 function formSubmitHandler (evt) {
     evt.preventDefault(); 
-
     name.textContent = nameInput.value;
-
     job.textContent = jobInput.value;
-
-closePopup();
+    closePopup();
 }

@@ -20,5 +20,8 @@
         margin: 0 0 0 10px;
         padding: 0;
         grid-area: edit;
+        display: flex;
+        align-items: center;
+        justify-content: center
     }
 }
