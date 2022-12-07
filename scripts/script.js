@@ -48,7 +48,6 @@ const initialCards = [
 for (i = 0; i < initialCards.length; i++) {
   cardCollect.push(initialCards[i]);
 }
-  console.log(cardCollect);
 
     for (i = 0; i < cardCollect.length; i++) {
     let Card = `
@@ -148,10 +147,9 @@ function addCard(evt) {
       openImgPopup(openImg);
     })
   }
-
+  
 function blackLike(clicked) {
     clicked.classList.toggle('element__like_active');
-    console.log("Клик");
 }
 
 function removeCard(clicked) {
@@ -162,7 +160,6 @@ function openImgPopup(clicked) {
   imgPopup.classList.add('img-popup_opened');
   popupImg.src = clicked.src;
   popupText.textContent = clicked.parentNode.nextElementSibling.childNodes[1].innerHTML;
-  console.log(clicked.parentNode.nextElementSibling.childNodes[1].innerHTML);
 }
 
 function imgPopupClose() {
