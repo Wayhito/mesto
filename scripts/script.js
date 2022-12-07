@@ -15,6 +15,7 @@ let Cards = document.querySelector('.elements');
 let imgPopup = document.querySelector('.img-popup');
 let popupImg = document.querySelector('.img-popup__image');
 let popupText = document.querySelector('.img-popup__text');
+let imgPopupCross = document.querySelector('.img-popup__cross-button');
 
 let cardCollect = new Array();
 const initialCards = [
@@ -90,6 +91,7 @@ formElement.addEventListener('submit', formSubmitHandler);
 add.addEventListener("click", openAddPopup);
 addCross.addEventListener("click", closeAddPopup);
 addFormElement.addEventListener('submit', addCard);
+imgPopupCross.addEventListener("click", imgPopupClose);
 
 function openPopup() { 
     formElement.classList.add('popup_opened');
@@ -161,4 +163,8 @@ function openImgPopup(clicked) {
   popupImg.src = clicked.src;
   popupText.textContent = clicked.parentNode.nextElementSibling.childNodes[1].innerHTML;
   console.log(clicked.parentNode.nextElementSibling.childNodes[1].innerHTML);
+}
+
+function imgPopupClose() {
+  imgPopup.classList.remove('img-popup_opened');
 }

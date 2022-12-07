@@ -40,8 +40,10 @@
 @import url(../blocks/add-popup/add-popup__paragraph/add-popup__paragraph.css);
 @import url(../blocks/add-popup/add-popup__submit/add-popup__submit.css);
 @import url(../blocks/img-popup/img-popup.css);
-@import url(../blocks/img-popup/img-popup__container/img-popup__container.css);
+@import url(../blocks/img-popup/__container/img-popup__container.css);
 @import url(../blocks/img-popup/__image/img-popup__image.css);
 @import url(../blocks/img-popup/__text/img-popup__text.css);
 @import url(../blocks/img-popup/_opened/img-popup_opened.css);
+@import url(../blocks/img-popup/__cross/img-popup__cross.css);
+@import url(../blocks/img-popup/__cross-button/img-popup__cross-button.css);
 @import url(../blocks/element/__image-field/element__image-field.css);
