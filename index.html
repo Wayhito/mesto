@@ -13,17 +13,37 @@
 
 <body class="body">
 
+  <div class="img-popup">
+    <div class="img-popup__container">
+      <img class="img-popup__image" src="">
+      <p class="img-popup__text"></p>
+    </div>
+  </div>
+  
   <div class="popup">
     <button type="button" class="popup__cross-button">
       <img class="popup__cross" src="../mesto/images/cross.svg" alt="(закрыть)">
     </button>
-      
     <div class="popup__container">
       <h3 class="popup__paragraph">Редактировать профиль</h3>
       <form name="name">
         <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Пример: имя" required>
         <input class="popup__input popup__input_type_job" type="text" name="job" placeholder="Пример: работа" required>
         <button class="popup__submit" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="add-popup">
+    <button type="button" class="add-popup__cross-button">
+      <img class="popup__cross" src="../mesto/images/cross.svg" alt="(закрыть)">
+    </button>
+    <div class="add-popup__container">
+      <h3 class="add-popup__paragraph">Новое место</h3>
+      <form name="name_addbutton">
+        <input class="popup__input popup__input_type_add-button-name" type="text" name="add-button-name" placeholder="Пример: название" required>
+        <input class="popup__input popup__input_type_add-button-link" type="text" name="add-button-link" placeholder="Пример: ссылка" required>
+        <button class="add-popup__submit" type="submit">Создать</button>
       </form>
     </div>
   </div>
@@ -55,7 +75,9 @@
 
     <section class="elements">
 
-      <div class="element">
+<!-- Я шьто зря их версталь? -->
+
+      <!-- <div class="element">
         <img class="element__image" src="./images/karachaevsk.png" alt="Картинка галереи">
         <div class="element__panel">
           <h2 class="element__name">Карачаевск</h2>
@@ -113,7 +135,7 @@
             <img class="element__like" src="./images/like.svg" alt="лайк">
           </button>
         </div> 
-      </div>
+      </div> -->
 
     </section>
   </main>

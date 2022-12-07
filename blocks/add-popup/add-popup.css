@@ -1,4 +1,4 @@
-.popup {
+.add-popup {
     position: fixed;
     height: 100vh;
     width: 100%;
@@ -13,4 +13,3 @@
     opacity: 0;
     transition: visibility 0.5s, opacity 0.5s linear;
 }
-
