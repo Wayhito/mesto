@@ -12,8 +12,23 @@
 </head>
 
 <body class="body">
+  
+  <template id="cardTemplate">
+    <div class="element">
+      <div class="element__image-field">
+        <img class="element__image" src="${cards[i].link}" alt="Картинка галереи">
+        <button class="element__remove"></button>
+      </div>
+      <div class="element__panel">
+        <h2 class="element__name">${cards[i].name}</h2>
+        <button class="element__like-button">
+          <img class="element__like" src="./images/like.svg" alt="лайк">
+        </button>
+      </div> 
+    </div>
+  </template>
 
-  <div class="img-popup">
+  <div class="popup img-popup">
     <div class="img-popup__container">
       <button type="button" class="img-popup__cross-button">
         <img class="img-popup__cross" src="../mesto/images/cross.svg" alt="(закрыть)">
@@ -23,30 +38,30 @@
     </div>
   </div>
   
-  <div class="popup">
-    <button type="button" class="popup__cross-button">
-      <img class="popup__cross" src="../mesto/images/cross.svg" alt="(закрыть)">
+  <div class="popup profile-popup">
+    <button type="button" class="popup__cross-button profile-popup__cross-button">
+      <img class="popup__cross profile-popup__cross" src="../mesto/images/cross.svg" alt="(закрыть)">
     </button>
-    <div class="popup__container">
-      <h3 class="popup__paragraph">Редактировать профиль</h3>
+    <div class="popup__container profile-popup__container">
+      <h3 class="popup__paragraph profile-popup__paragraph">Редактировать профиль</h3>
       <form name="name">
-        <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Пример: имя" required>
-        <input class="popup__input popup__input_type_job" type="text" name="job" placeholder="Пример: работа" required>
-        <button class="popup__submit" type="submit">Сохранить</button>
+        <input class="popup__input profile-popup__input profile-popup__input_type_name" type="text" name="name" placeholder="Пример: имя" required>
+        <input class="popup__input profile-popup__input profile-popup__input_type_job" type="text" name="job" placeholder="Пример: работа" required>
+        <button class="popup__submit profile-popup__submit" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
 
-  <div class="add-popup">
-    <button type="button" class="add-popup__cross-button">
-      <img class="add-popup__cross" src="../mesto/images/cross.svg" alt="(закрыть)">
+  <div class="popup add-popup">
+    <button type="button" class="popup__cross-button add-popup__cross-button">
+      <img class="popup__cross add-popup__cross" src="../mesto/images/cross.svg" alt="(закрыть)">
     </button>
-   <div class="add-popup__container">
-      <h3 class="add-popup__paragraph">Новое место</h3>
-      <form name="name_addbutton">
-        <input class="add-popup__input add-popup__input_type_name" type="text" name="add-button-name" placeholder="Пример: название" required>
-        <input class="add-popup__input add-popup__input_type_link" type="text" name="add-button-link" placeholder="Пример: ссылка" required>
-        <button class="add-popup__submit" type="submit">Создать</button>
+   <div class="popup__container add-popup__container">
+      <h3 class="popup__paragraph add-popup__paragraph">Новое место</h3>
+      <form name="name_addbutton" id="cardForm">
+        <input class="popup__input add-popup__input add-popup__input_type_name" type="text" name="add-button-name" placeholder="Пример: название" required>
+        <input class="popup__input add-popup__input add-popup__input_type_link" type="text" name="add-button-link" placeholder="Пример: ссылка" required>
+        <button class="popup__submit add-popup__submit" type="submit">Создать</button>
       </form>
     </div>
   </div>
