@@ -15,7 +15,6 @@ const popupImg = document.querySelector('.img-popup__image');
 const popupText = document.querySelector('.img-popup__text');
 const imgPopupCross = document.querySelector('.img-popup__cross-button');
 
-let cards = new Array();
 const initialCards = [
     {
       name: 'Архыз',
@@ -44,32 +43,7 @@ const initialCards = [
   ]; 
 
 for (i = 0; i < initialCards.length; i++) {
-  cards.push(initialCards[i]);
-}
-
-for (i = 0; i < cards.length; i++) {
-  addCard(cards[i].link, cards[i].name)
-}
-
-function addCard(link, name) {
-  const card = document.querySelector('#cardTemplate').content;
-  const cardField = document.querySelector('.elements');
-  const cardElement = card.querySelector('.element').cloneNode(true);
-  cardElement.querySelector('.element__image').src = link;
-  cardElement.querySelector('.element__name').textContent = name;
-  cardField.prepend(cardElement);
-  let newLike = document.querySelector('.element__like');
-  newLike.addEventListener('click', event => {
-    switchLikeColor(newLike);
-  })
-  let newRemove = document.querySelector('.element__remove');
-  newRemove.addEventListener('click', event => {
-    removeCard(newRemove);
-  })
-  let openImg = document.querySelector('.element__image');
-  openImg.addEventListener('click', event => {
-    openImgPopup(openImg);
-  })
+  addCard(initialCards[i].link, initialCards[i].name)
 }
 
 editButton.addEventListener("click", () => {
@@ -96,6 +70,27 @@ imgPopupCross.addEventListener("click", () => {
 
 profilePopup.addEventListener('submit', submitProfilePopup);
 cardPopup.addEventListener('submit', submitCard);
+
+function addCard(link, name) {
+  const card = document.querySelector('#cardTemplate').content;
+  const cardField = document.querySelector('.elements');
+  const cardElement = card.querySelector('.element').cloneNode(true);
+  cardElement.querySelector('.element__image').src = link;
+  cardElement.querySelector('.element__name').textContent = name;
+  cardField.prepend(cardElement);
+  let newLike = document.querySelector('.element__like');
+  newLike.addEventListener('click', event => {
+    switchLikeColor(newLike);
+  })
+  let newRemove = document.querySelector('.element__remove');
+  newRemove.addEventListener('click', event => {
+    removeCard(newRemove);
+  })
+  let openImg = document.querySelector('.element__image');
+  openImg.addEventListener('click', event => {
+    openImgPopup(openImg);
+  })
+}
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
