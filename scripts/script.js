@@ -14,6 +14,8 @@ const imgPopup = document.querySelector('.img-popup');
 const popupImg = document.querySelector('.img-popup__image');
 const popupText = document.querySelector('.img-popup__text');
 const imgPopupCross = document.querySelector('.img-popup__cross-button');
+const card = document.querySelector('#cardTemplate').content;
+const cardField = document.querySelector('.elements');
 
 const initialCards = [
     {
@@ -71,25 +73,34 @@ imgPopupCross.addEventListener("click", () => {
 profilePopup.addEventListener('submit', submitProfilePopup);
 cardPopup.addEventListener('submit', submitCard);
 
-function addCard(link, name) {
-  const card = document.querySelector('#cardTemplate').content;
-  const cardField = document.querySelector('.elements');
+function generateCard(link, name) {
   const cardElement = card.querySelector('.element').cloneNode(true);
   cardElement.querySelector('.element__image').src = link;
   cardElement.querySelector('.element__name').textContent = name;
-  cardField.prepend(cardElement);
-  let newLike = document.querySelector('.element__like');
+  cardElement.querySelector('.element__image').alt = name;
+  const newLike = cardElement.querySelector('.element__like');
   newLike.addEventListener('click', event => {
     switchLikeColor(newLike);
   })
-  let newRemove = document.querySelector('.element__remove');
+  const newRemove = cardElement.querySelector('.element__remove');
   newRemove.addEventListener('click', event => {
     removeCard(newRemove);
   })
-  let openImg = document.querySelector('.element__image');
+  const openImg = cardElement.querySelector('.element__image');
   openImg.addEventListener('click', event => {
     openImgPopup(openImg);
   })
+  return cardElement;
+}
+
+function renderCard(card) {
+  cardField.prepend(card);
+}
+
+function addCard(link, name) {
+  generateCard(link, name);
+  const generatedCard = generateCard(link, name);
+  renderCard(generatedCard);
 }
 
 function openPopup(popup) {
@@ -101,7 +112,7 @@ function closePopup(popup) {
 }
 
 function openImgPopup(clicked) {
-  imgPopup.classList.add('popup_opened');
+  openPopup(imgPopup);
   popupImg.src = clicked.src;
   popupText.textContent = clicked.closest('.element').querySelector('.element__name').textContent;
   popupImg.alt = "Картинка"
@@ -118,12 +129,12 @@ function submitCard(evt) {
   evt.preventDefault();
   addCard(cardLinkInput.value, cardNameInput.value);
   cardLinkInput.value = "";
-  cardNameInput.value = "";  
-    closePopup(cardPopup);
-  }
+  cardNameInput.value = "";
+  closePopup(cardPopup);
+}
   
 function switchLikeColor(active) {
-    active.classList.toggle('element__like_active');
+  active.classList.toggle('element__like_active');
 }
 
 function removeCard(clicked) {
