@@ -111,6 +111,25 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
+window.onkeyup = function(event) {
+  if (event.keyCode == 27) {
+      closePopup(imgPopup);
+      closePopup(cardPopup);
+      closePopup(profilePopup);
+  }
+};
+
+
+imgPopup.addEventListener("click", closePopupByClickOnOverlay);
+cardPopup.addEventListener("click", closePopupByClickOnOverlay);
+profilePopup.addEventListener("click", closePopupByClickOnOverlay);
+
+function closePopupByClickOnOverlay(event) {
+  if (event.target === event.currentTarget) {
+    closePopup(event.target);
+  }
+}
+
 function openImgPopup(clicked) {
   openPopup(imgPopup);
   popupImg.src = clicked.src;
