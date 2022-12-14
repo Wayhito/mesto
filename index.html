@@ -45,8 +45,10 @@
     <div class="popup__container profile-popup__container">
       <h3 class="popup__paragraph profile-popup__paragraph">Редактировать профиль</h3>
       <form name="name" class="popup__form">
-        <input class="popup__input profile-popup__input profile-popup__input_type_name" type="text" name="name" placeholder="Пример: имя" required>
-        <input class="popup__input profile-popup__input profile-popup__input_type_job" type="text" name="job" placeholder="Пример: работа" required>
+        <input class="popup__input profile-popup__input profile-popup__input_type_name" minlength="2" maxlength="40" type="text" name="name" placeholder="Пример: имя" required>
+        <span class="popup__input-error"></span>
+        <input class="popup__input profile-popup__input profile-popup__input_type_job" minlength="2" maxlength="200" type="text" name="job" placeholder="Пример: работа" required>
+        <span class="popup__input-error"></span>
         <button class="popup__submit profile-popup__submit" type="submit">Сохранить</button>
       </form>
     </div>
@@ -59,8 +61,10 @@
    <div class="popup__container add-popup__container">
       <h3 class="popup__paragraph add-popup__paragraph">Новое место</h3>
       <form name="name_addbutton" id="cardForm" class="popup__form">
-        <input class="popup__input add-popup__input add-popup__input_type_name" type="text" name="add-button-name" placeholder="Пример: название" required>
-        <input class="popup__input add-popup__input add-popup__input_type_link" type="text" name="add-button-link" placeholder="Пример: ссылка" required>
+        <input class="popup__input add-popup__input add-popup__input_type_name" minlength="2" maxlength="30" type="text" name="add-button-name" placeholder="Пример: название" required>
+        <span class="popup__input-error"></span>
+        <input class="popup__input add-popup__input add-popup__input_type_link" type="url" name="add-button-link" placeholder="Пример: ссылка" required>
+        <span class="popup__input-error"></span>
         <button class="popup__submit add-popup__submit" type="submit">Создать</button>
       </form>
     </div>
@@ -101,5 +105,6 @@
 
   </div>
 <script src="scripts/script.js"></script>
+<script src="scripts/validation.js"></script>
 </body>
 </html>
