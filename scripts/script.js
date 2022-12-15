@@ -3,6 +3,7 @@ const profilePopup = document.querySelector('.profile-popup');
 const profileCross = document.querySelector('.profile-popup__cross');
 const profileNameInput = document.querySelector('.profile-popup__input_type_name');
 const profileJobInput = document.querySelector('.profile-popup__input_type_job');
+const profileForm = document.querySelector('#profileForm');
 const name = document.querySelector('.profile__name');
 const job = document.querySelector('.profile__job');
 const addButton = document.querySelector('.profile__add-button');
@@ -10,6 +11,7 @@ const cardPopup = document.querySelector('.add-popup');
 const cardCross = document.querySelector('.add-popup__cross-button');
 const cardNameInput = document.querySelector('.add-popup__input_type_name');
 const cardLinkInput = document.querySelector('.add-popup__input_type_link');
+const cardForm = document.querySelector('#cardForm');
 const imgPopup = document.querySelector('.img-popup');
 const popupImg = document.querySelector('.img-popup__image');
 const popupText = document.querySelector('.img-popup__text');
@@ -70,8 +72,8 @@ imgPopupCross.addEventListener("click", () => {
   closePopup(imgPopup);
 });
 
-profilePopup.addEventListener('submit', submitProfilePopup);
-cardPopup.addEventListener('submit', submitCard);
+profileForm.addEventListener('submit', submitProfilePopup);
+cardForm.addEventListener('submit', submitCard);
 
 function generateCard(link, name) {
   const cardElement = card.querySelector('.element').cloneNode(true);
@@ -105,20 +107,20 @@ function addCard(link, name) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEsc)
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEsc)
 }
 
-window.onkeyup = function(event) {
-  if (event.keyCode == 27) {
-      closePopup(imgPopup);
-      closePopup(cardPopup);
-      closePopup(profilePopup);
+function closeByEsc(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup); 
   }
-};
-
+}  
 
 imgPopup.addEventListener("click", closePopupByClickOnOverlay);
 cardPopup.addEventListener("click", closePopupByClickOnOverlay);
@@ -149,6 +151,8 @@ function submitCard(evt) {
   addCard(cardLinkInput.value, cardNameInput.value);
   cardLinkInput.value = "";
   cardNameInput.value = "";
+  evt.submitter.classList.add('popup__submit_disabled');
+  evt.submitter.disabled = true;
   closePopup(cardPopup);
 }
   
