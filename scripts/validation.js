@@ -40,10 +40,7 @@ function setEventListeners(args, formElement) {
 const enableValidation = (args) => {
   const formList = Array.from(document.querySelectorAll(args.formSelector));
   formList.forEach((formElement) => {
-    setEventListeners(
-      args,
-      formElement,
-    );
+    setEventListeners(args, formElement);
   });
 };
 
