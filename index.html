@@ -45,14 +45,10 @@
     <div class="popup__container profile-popup__container">
       <h3 class="popup__paragraph profile-popup__paragraph">Редактировать профиль</h3>
       <form name="name" id="profileForm" class="popup__form">
-        <label class="popup__field">
-          <input class="popup__input profile-popup__input profile-popup__input_type_name" minlength="2" maxlength="40" type="text" name="name" placeholder="Пример: имя" required>
-          <span class="popup__input-error"></span>
-        </label>
-        <label class="popup__field">
-          <input class="popup__input profile-popup__input profile-popup__input_type_job" minlength="2" maxlength="200" type="text" name="job" placeholder="Пример: работа" required>
-          <span class="popup__input-error"></span>
-        </label>
+          <input class="popup__input profile-popup__input profile-popup__input_type_name" id="name-input" minlength="2" maxlength="40" type="text" name="name" placeholder="Пример: имя" required>
+          <span class="popup__input-error name-input-error"></span>
+          <input class="popup__input profile-popup__input profile-popup__input_type_job" id="job-input" minlength="2" maxlength="200" type="text" name="job" placeholder="Пример: работа" required>
+          <span class="popup__input-error job-input-error"></span>
         <button class="popup__submit profile-popup__submit" type="submit" disabled>Сохранить</button>
       </form>
     </div>
@@ -65,14 +61,10 @@
    <div class="popup__container add-popup__container">
       <h3 class="popup__paragraph add-popup__paragraph">Новое место</h3>
       <form name="name_addbutton" id="cardForm" class="popup__form">
-        <label class="popup__field">
-          <input class="popup__input add-popup__input add-popup__input_type_name" minlength="2" maxlength="30" type="text" name="add-button-name" placeholder="Пример: название" required>
-          <span class="popup__input-error"></span>
-        </label>
-        <label class="popup__field">
-          <input class="popup__input add-popup__input add-popup__input_type_link" type="url" name="add-button-link" placeholder="Пример: ссылка" required>
-          <span class="popup__input-error"></span>
-        </label>  
+          <input class="popup__input add-popup__input add-popup__input_type_name" id="title-input" minlength="2" maxlength="30" type="text" name="add-button-name" placeholder="Пример: название" required>
+          <span class="popup__input-error title-input-error"></span>
+          <input class="popup__input add-popup__input add-popup__input_type_link" id="link-input" type="url" name="add-button-link" placeholder="Пример: ссылка" required>
+          <span class="popup__input-error link-input-error"></span>
         <button class="popup__submit add-popup__submit" type="submit" disabled>Создать</button>
       </form>
     </div>

@@ -10,7 +10,7 @@
     line-height: 22px;
     text-align: center;
     color: #FFFFFF;
-    margin-top: 31px;
+    margin-top: 25px;
 }
 
 .popup__submit:hover {
@@ -24,6 +24,5 @@
         height: 46px;
         font-size: 14px;
         line-height: 17px;
-        margin-top: 44px;
     }   
 }
