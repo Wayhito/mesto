@@ -1,3 +1,7 @@
+import {Card} from "./Card.js"
+import { FormValidator } from "./FormValidator.js";
+const validation = new FormValidator();
+
 const editButton = document.querySelector('.profile__edit-button');
 const profilePopup = document.querySelector('.profile-popup');
 const profileCross = document.querySelector('.profile-popup__cross');
@@ -13,10 +17,10 @@ const cardNameInput = document.querySelector('.add-popup__input_type_name');
 const cardLinkInput = document.querySelector('.add-popup__input_type_link');
 const cardForm = document.querySelector('#cardForm');
 const imgPopup = document.querySelector('.img-popup');
-const popupImg = document.querySelector('.img-popup__image');
-const popupText = document.querySelector('.img-popup__text');
+// const popupImg = document.querySelector('.img-popup__image');
+// const popupText = document.querySelector('.img-popup__text');
 const imgPopupCross = document.querySelector('.img-popup__cross-button');
-const card = document.querySelector('#cardTemplate').content;
+// const card = document.querySelector('#cardTemplate').content;
 const cardField = document.querySelector('.elements');
 
 const initialCards = [
@@ -46,7 +50,7 @@ const initialCards = [
     }
   ]; 
 
-for (i = 0; i < initialCards.length; i++) {
+for (let i = 0; i < initialCards.length; i++) {
   addCard(initialCards[i].link, initialCards[i].name)
 }
 
@@ -75,33 +79,38 @@ imgPopupCross.addEventListener("click", () => {
 profileForm.addEventListener('submit', submitProfilePopup);
 cardForm.addEventListener('submit', submitCard);
 
-function generateCard(link, name) {
-  const cardElement = card.querySelector('.element').cloneNode(true);
-  cardElement.querySelector('.element__image').src = link;
-  cardElement.querySelector('.element__name').textContent = name;
-  cardElement.querySelector('.element__image').alt = name;
-  const newLike = cardElement.querySelector('.element__like');
-  newLike.addEventListener('click', event => {
-    switchLikeColor(newLike);
-  })
-  const newRemove = cardElement.querySelector('.element__remove');
-  newRemove.addEventListener('click', event => {
-    removeCard(newRemove);
-  })
-  const openImg = cardElement.querySelector('.element__image');
-  openImg.addEventListener('click', event => {
-    openImgPopup(openImg);
-  })
-  return cardElement;
-}
+// function generateCard(link, name) {
+//   const cardElement = card.querySelector('.element').cloneNode(true);
+//   cardElement.querySelector('.element__image').src = link;
+//   cardElement.querySelector('.element__name').textContent = name;
+//   cardElement.querySelector('.element__image').alt = name;
+//   const newLike = cardElement.querySelector('.element__like');
+//   newLike.addEventListener('click', event => {
+//     switchLikeColor(newLike);
+//   })
+//   const newRemove = cardElement.querySelector('.element__remove');
+//   newRemove.addEventListener('click', event => {
+//     removeCard(newRemove);
+//   })
+//   const openImg = cardElement.querySelector('.element__image');
+//   openImg.addEventListener('click', event => {
+//     openImgPopup(openImg);
+//   })
+//   return cardElement;
+// }
 
 function renderCard(card) {
-  cardField.prepend(card);
+  cardField.prepend(card.getElement());
 }
 
+// function addCard(link, name) {
+//   generateCard(link, name);
+//   const generatedCard = generateCard(link, name);
+//   renderCard(generatedCard);
+// }
+
 function addCard(link, name) {
-  generateCard(link, name);
-  const generatedCard = generateCard(link, name);
+  const generatedCard = new Card(name, link);
   renderCard(generatedCard);
 }
 
@@ -132,12 +141,12 @@ function closePopupByClickOnOverlay(event) {
   }
 }
 
-function openImgPopup(clicked) {
-  openPopup(imgPopup);
-  popupImg.src = clicked.src;
-  popupText.textContent = clicked.closest('.element').querySelector('.element__name').textContent;
-  popupImg.alt = "Картинка"
-}
+// function openImgPopup(clicked) {
+//   openPopup(imgPopup);
+//   popupImg.src = clicked.src;
+//   popupText.textContent = clicked.closest('.element').querySelector('.element__name').textContent;
+//   popupImg.alt = "Картинка"
+// }
 
 function submitProfilePopup (evt) {
   evt.preventDefault(); 
@@ -156,10 +165,12 @@ function submitCard(evt) {
   closePopup(cardPopup);
 }
   
-function switchLikeColor(active) {
-  active.classList.toggle('element__like_active');
-}
+// function switchLikeColor(active) {
+//   active.classList.toggle('element__like_active');
+// }
 
-function removeCard(clicked) {
-  clicked.closest('.element').remove();
-}
+// function removeCard(clicked) {
+//   clicked.closest('.element').remove();
+// }
+
+export {openPopup}

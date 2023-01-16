@@ -3,12 +3,6 @@ const showInputError = (formElement, inputElement, errorMessage, args) => {
   errorContainer.textContent = errorMessage;
   errorContainer.classList.add(args.errorActiveClass);
   inputElement.classList.add(args.inputErrorClass);
-  // const errorMessage = fieldElement.querySelector(args.inputSelector).validationMessage;
-  // const input = fieldElement.querySelector(args.inputSelector);
-  // const errorContainer = fieldElement.querySelector(args.errorSelector);
-  // input.classList.add(args.inputErrorClass);
-  // errorContainer.textContent = errorMessage;
-  // errorContainer.classList.add(args.errorActiveClass);
 };
 
 const hideInputError = (formElement, inputElement, args) => {
@@ -16,11 +10,6 @@ const hideInputError = (formElement, inputElement, args) => {
   errorContainer.textContent = "";
   errorContainer.classList.remove(args.errorActiveClass);
   inputElement.classList.remove(args.inputErrorClass);
-  // const inputElement = fieldElement.querySelector(args.inputSelector);
-  // inputElement.classList.remove(args.inputErrorClass);
-  // const errorContainer = fieldElement.querySelector(args.errorSelector);
-  // errorContainer.textContent = "";
-  // errorContainer.classList.remove(args.errorActiveClass);
 };
   
 const checkInputValidity = (formElement, inputElement, args) => {
@@ -31,12 +20,6 @@ const checkInputValidity = (formElement, inputElement, args) => {
   }
 };
 
-// if (!inputElement.validity.valid) {
-//   showInputError(formElement, inputElement, inputElement.validationMessage);
-// } else {
-//   hideInputError(formElement, inputElement);
-// }
-  
 function setEventListeners(args, formElement) {
   const inputList = Array.from(formElement.querySelectorAll(args.inputSelector));
   const buttonElement = formElement.querySelector(args.submitButtonSelector);
