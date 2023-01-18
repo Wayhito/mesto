@@ -1,6 +1,3 @@
-import {validationProfile} from "./script.js"
-import { validationCard } from "./script.js";
-
 export class FormValidator {
 
   settingsOfValidation;
@@ -71,8 +68,8 @@ export class FormValidator {
     inputElement.classList.remove(args.inputErrorClass);
   };
 
-  _disableButton = (submitter) => {
-    submitter.classList.add('popup__submit_disabled');
+  disableButton = (submitter, args) => {
+    submitter.classList.add(args.inactiveButtonClass);
     submitter.disabled = true;
   };
 }

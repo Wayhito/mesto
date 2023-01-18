@@ -134,10 +134,6 @@ function submitCard(evt) {
   addCard(cardLinkInput.value, cardNameInput.value);
   cardLinkInput.value = "";
   cardNameInput.value = "";
-  validationCard._disableButton(evt.submitter);
+  validationCard.disableButton(evt.submitter, settingsOfValidation);
   closePopup(cardPopup);
 }
-
-export {validationProfile}
-export {validationCard}
-export {closeByEsc}
