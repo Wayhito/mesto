@@ -1,0 +1,19 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "* Одностраничный, адаптивный для всех устройств, сайт сверстанный при помощи Figma.\r * Предназначен для ознакомительного просмотра.\r * Сайт предлагает информацию по интересным местам для путешествия.\r * На сайте представлен редактируемый профиль с блоком картинок от пользователя",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wayhito/mesto.git"
+  },
+  "author": "Ilya Gladkikh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wayhito/mesto/issues"
+  },
+  "homepage": "https://github.com/Wayhito/mesto#readme"
+}

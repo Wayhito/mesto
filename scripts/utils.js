@@ -1,13 +1,13 @@
-function closeByEsc(evt) {
-    if (evt.key === "Escape") {
-        const openedPopup = document.querySelector('.popup_opened');
-        closePopup(openedPopup); 
-    }
-}
+// function closeByEsc(evt) {
+//     if (evt.key === "Escape") {
+//         const openedPopup = document.querySelector('.popup_opened');
+//         closePopup(openedPopup); 
+//     }
+// }
 
-function openPopup(popup) {
-    popup.classList.add('popup_opened');
-    document.addEventListener('keydown', closeByEsc)
-}
+// export function openPopup(popup) {
+//     popup.classList.add('popup_opened');
+//     document.addEventListener('keydown', closeByEsc)
+// }
 
-export {openPopup}
+// export {openPopup}

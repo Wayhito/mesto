@@ -1,15 +1,13 @@
-import {openPopup} from "./utils.js" 
-import { imgPopup } from "./consts.js";
-import { cardTitle } from "./consts.js";
-import { cardImg } from "./consts.js";
- 
+// import { PopupWithImage } from "./PopupWithImage.js";
+
 export class Card { 
 
-    constructor (name, link, cardTemplate) { 
-        this._name = name; 
-        this._src = link;
+    constructor (item, cardTemplate, handleCardClick) {
+        this._handleCardClick = handleCardClick;
+        this._name = item.name;
+        this._link = item.link;
         this._cardTemplate = cardTemplate;
-    } 
+    }
 
     _getElement() {
         this._element = this._cardTemplate.querySelector('.element').cloneNode(true); 
@@ -26,7 +24,11 @@ export class Card {
         }); 
 
         Image.addEventListener('click', () => { 
-            this._openImage(this._name, this._src); 
+            const data = {
+                'name' : this._name,
+                'link' : this._link
+              }
+            this._handleCardClick( data );
         }); 
     } 
 
@@ -38,21 +40,16 @@ export class Card {
         this._element.remove(); 
     } 
 
-    _openImage() { 
-  
-        cardTitle.textContent = this._name; 
-        cardImg.src = this._src; 
-        cardImg.alt = this._name; 
-        openPopup(imgPopup); 
-    } 
-
     generateCard() { 
         this._getElement();
+
         this._image = this._element.querySelector('.element__image'); 
-        this._image.src = this._src; 
+        this._image.src = this._link; 
         this._image.alt = this._name; 
         this._element.querySelector('.element__name').textContent = this._name; 
+
         this._likeButton = this._element.querySelector('.element__like'); 
+
         this._setEventListeners(this._image); 
         return this._element; 
     } 
