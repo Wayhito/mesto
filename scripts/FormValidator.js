@@ -68,7 +68,8 @@ export class FormValidator {
     inputElement.classList.remove(args.inputErrorClass);
   };
 
-  disableButton = (submitter, args) => {
+  // disableButton = (submitter, args) => {
+  disableButton = () => {
     submitter.classList.add(args.inactiveButtonClass);
     submitter.disabled = true;
   };

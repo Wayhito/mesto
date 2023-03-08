@@ -14,7 +14,7 @@ export class Card {
         return this._element; 
     } 
 
-    _setEventListeners(Image) { 
+    _setEventListeners() { 
         this._element.querySelector('.element__like').addEventListener('click', (evt) => { 
             this._toggleLike(evt); 
         }); 
@@ -23,7 +23,7 @@ export class Card {
             this._deleteCard(); 
         }); 
 
-        Image.addEventListener('click', () => { 
+        this._image.addEventListener('click', () => { 
             const data = {
                 'name' : this._name,
                 'link' : this._link
@@ -37,7 +37,8 @@ export class Card {
     } 
 
     _deleteCard() { 
-        this._element.remove(); 
+        this._element.remove();
+        this._element = null;
     } 
 
     generateCard() { 
@@ -50,7 +51,7 @@ export class Card {
 
         this._likeButton = this._element.querySelector('.element__like'); 
 
-        this._setEventListeners(this._image); 
+        this._setEventListeners(); 
         return this._element; 
     } 
 }
