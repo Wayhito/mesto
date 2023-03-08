@@ -1,30 +1,31 @@
 import '../pages/index.css';
-import {Card} from "../scripts/Card.js"
+import {Card} from "./components/Card.js"
 // import { FormValidator } from "../scripts/FormValidator.js";
 // import { Popup } from "../scripts/Popup.js";
-import { PopupWithImage } from "../scripts/PopupWithImage.js";
-import { UserInfo } from "../scripts/UserInfo.js";
-import { PopupWithForm } from "../scripts/PopupWithForm.js";
-import { Section } from "../scripts/Section.js";
-// import { settingsOfValidation } from '../scripts/Utils.js';
-import { editButton } from '../scripts/Utils.js';
-import { addButton } from '../scripts/Utils.js';
-import { profileNameInput } from '../scripts/Utils.js';
-import { profileJobInput } from '../scripts/Utils.js';
-import { name } from '../scripts/Utils.js';
-import { job } from '../scripts/Utils.js';
+import { PopupWithImage } from "./components/PopupWithImage.js";
+import { UserInfo } from "./components/UserInfo.js";
+import { PopupWithForm } from "./components/PopupWithForm.js";
+import { Section } from "./components/Section.js";
+import { settingsOfValidation } from './components/utils.js';
+import { editButton } from './components/utils.js';
+import { addButton } from './components/utils.js';
+import { profileNameInput } from './components/utils.js';
+import { profileJobInput } from './components/utils.js';
+import { name } from './components/utils.js';
+import { job } from './components/utils.js';
 // import { profileForm } from '../scripts/Utils.js';
 // import { cardForm } from '../scripts/Utils.js';
-// import { validationCard } from '../scripts/Utils.js';
-// import { validationProfile } from '../scripts/Utils.js';
-import { initialCards } from '../scripts/Utils.js';
-import { cardTemplate } from '../scripts/Utils.js';
+import { validationCard } from './components/utils.js';
+import { validationProfile } from './components/utils.js';
+import { initialCards } from './components/utils.js';
+import { cardTemplate } from './components/utils.js';
 
 const popupWithImage = new PopupWithImage('.img-popup');
+popupWithImage.setEventListeners();
 
 const handleCardClick = (item) => {
   // const popupWithImage = new PopupWithImage('.img-popup');
-  popupWithImage.setEventListeners();
+  // popupWithImage.setEventListeners();
   popupWithImage.open(item.name, item.link);
 };
 
@@ -75,11 +76,13 @@ popupCard.setEventListeners();
 
 editButton.addEventListener("click", () => {
   popupProfile.openPopup();
+  validationProfile.disableButton(settingsOfValidation);
   profileNameInput.value = name.textContent;
   profileJobInput.value = job.textContent;
 });
 
 addButton.addEventListener("click", () => {
+  validationCard.disableButton(settingsOfValidation);
   popupCard.openPopup();
 });
 

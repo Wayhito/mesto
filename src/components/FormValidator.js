@@ -69,8 +69,10 @@ export class FormValidator {
   };
 
   // disableButton = (submitter, args) => {
-  disableButton = () => {
-    submitter.classList.add(args.inactiveButtonClass);
-    submitter.disabled = true;
+    disableButton = (args) => {
+    this.buttonElement.classList.add(args.inactiveButtonClass);
+    this.buttonElement.disabled = true;
+    // submitter.classList.add(args.inactiveButtonClass);
+    // submitter.disabled = true;
   };
 }
