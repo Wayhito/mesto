@@ -1,24 +1,24 @@
-import '../pages/index.css';
-import {Card} from "./components/Card.js"
+import './index.css';
+import {Card} from "../components/Card.js"
 // import { FormValidator } from "../scripts/FormValidator.js";
 // import { Popup } from "../scripts/Popup.js";
-import { PopupWithImage } from "./components/PopupWithImage.js";
-import { UserInfo } from "./components/UserInfo.js";
-import { PopupWithForm } from "./components/PopupWithForm.js";
-import { Section } from "./components/Section.js";
-import { settingsOfValidation } from './components/utils.js';
-import { editButton } from './components/utils.js';
-import { addButton } from './components/utils.js';
-import { profileNameInput } from './components/utils.js';
-import { profileJobInput } from './components/utils.js';
-import { name } from './components/utils.js';
-import { job } from './components/utils.js';
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { UserInfo } from "../components/UserInfo.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { Section } from "../components/Section.js";
+import { settingsOfValidation } from '../components/utils.js';
+import { editButton } from '../components/utils.js';
+import { addButton } from '../components/utils.js';
+import { profileNameInput } from '../components/utils.js';
+import { profileJobInput } from '../components/utils.js';
+import { name } from '../components/utils.js';
+import { job } from '../components/utils.js';
 // import { profileForm } from '../scripts/Utils.js';
 // import { cardForm } from '../scripts/Utils.js';
-import { validationCard } from './components/utils.js';
-import { validationProfile } from './components/utils.js';
-import { initialCards } from './components/utils.js';
-import { cardTemplate } from './components/utils.js';
+import { validationCard } from '../components/utils.js';
+import { validationProfile } from '../components/utils.js';
+import { initialCards } from '../components/utils.js';
+import { cardTemplate } from '../components/utils.js';
 
 const popupWithImage = new PopupWithImage('.img-popup');
 popupWithImage.setEventListeners();
