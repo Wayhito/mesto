@@ -6,19 +6,19 @@ import { PopupWithImage } from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { Section } from "../components/Section.js";
-import { settingsOfValidation } from '../components/utils.js';
-import { editButton } from '../components/utils.js';
-import { addButton } from '../components/utils.js';
-import { profileNameInput } from '../components/utils.js';
-import { profileJobInput } from '../components/utils.js';
-import { name } from '../components/utils.js';
-import { job } from '../components/utils.js';
+import { settingsOfValidation } from '../utils/utils.js';
+import { editButton } from '../utils/utils.js';
+import { addButton } from '../utils/utils.js';
+import { profileNameInput } from '../utils/utils.js';
+import { profileJobInput } from '../utils/utils.js';
+import { name } from '../utils/utils.js';
+import { job } from '../utils/utils.js';
 // import { profileForm } from '../scripts/Utils.js';
 // import { cardForm } from '../scripts/Utils.js';
-import { validationCard } from '../components/utils.js';
-import { validationProfile } from '../components/utils.js';
-import { initialCards } from '../components/utils.js';
-import { cardTemplate } from '../components/utils.js';
+import { validationCard } from '../utils/utils.js';
+import { validationProfile } from '../utils/utils.js';
+import { initialCards } from '../utils/utils.js';
+import { cardTemplate } from '../utils/utils.js';
 
 const popupWithImage = new PopupWithImage('.img-popup');
 popupWithImage.setEventListeners();
@@ -76,13 +76,13 @@ popupCard.setEventListeners();
 
 editButton.addEventListener("click", () => {
   popupProfile.openPopup();
-  validationProfile.disableButton(settingsOfValidation);
+  validationProfile.disableButton();
   profileNameInput.value = name.textContent;
   profileJobInput.value = job.textContent;
 });
 
 addButton.addEventListener("click", () => {
-  validationCard.disableButton(settingsOfValidation);
+  validationCard.disableButton();
   popupCard.openPopup();
 });
 

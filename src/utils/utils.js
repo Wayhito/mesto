@@ -1,4 +1,4 @@
-import { FormValidator } from "./FormValidator.js";
+import { FormValidator } from "../components/FormValidator.js";
 // import { settingsOfValidation } from './Utils.js';
 // import { editButton } from './Utils.js';
 // import { addButton } from './Utils.js';
