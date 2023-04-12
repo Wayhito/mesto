@@ -7,7 +7,6 @@ export class FormValidator {
   buttonElement;
 
   constructor(args, form) {
-
     this.settingsOfValidation = args;
     this.form = form;
     this.inputList = Array.from(form.querySelectorAll(args.inputSelector));

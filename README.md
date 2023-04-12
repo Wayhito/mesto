@@ -12,7 +12,9 @@ Flexbox верстка
 HTML, CSS
 CSS Grid Layout
 Анимации (hover-opacity)
-JavaScript, переменные, функции
+JavaScript, переменные, функции, JS-классы
+Вебпак-сборка
+Api, fetch
 
 **GitHub Pages**
 * [Ссылка на проект в GutHub Pages](https://wayhito.github.io/mesto/)

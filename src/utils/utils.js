@@ -13,6 +13,21 @@ import { FormValidator } from "../components/FormValidator.js";
 // import { initialCards } from './Utils.js';
 // import { cardTemplate } from './Utils.js';
 
+export function addSaving(elem) {
+    elem.textContent = "Сохранение...";
+}
+  
+export function removeSaving(elem) {
+    elem.textContent = "Сохранить";
+}
+
+export function removeSavingConfirmation(elem) {
+    elem.textContent = "Да";
+}
+
+export function removeSavingCard(elem) {
+    elem.textContent = "Создать";
+}
 
 export const settingsOfValidation = {
     formSelector: '.popup__form',
@@ -24,14 +39,16 @@ export const settingsOfValidation = {
     errorActiveClass: 'popup__input-error_active'
 };
 
+export const avatarButton = document.querySelector('.profile__image-button');
 export const editButton = document.querySelector('.profile__edit-button');
+export const addButton = document.querySelector('.profile__add-button');
 // const profilePopup = document.querySelector('.profile-popup');
 // const profileCross = document.querySelector('.profile-popup__cross');
 export const profileNameInput = document.querySelector('.profile-popup__input_type_name');
 export const profileJobInput = document.querySelector('.profile-popup__input_type_job');
+export const avatar = document.querySelector('.profile__image');
 export const name = document.querySelector('.profile__name');
 export const job = document.querySelector('.profile__job');
-export const addButton = document.querySelector('.profile__add-button');
 // const cardPopup = document.querySelector('.add-popup');
 // const cardCross = document.querySelector('.add-popup__cross-button');
 // const cardNameInput = document.querySelector('.add-popup__input_type_name');
@@ -40,38 +57,40 @@ export const addButton = document.querySelector('.profile__add-button');
 // const imgPopupCross = document.querySelector('.img-popup__cross-button');
 // const cardField = document.querySelector('.elements');
 
+export const avatarForm = document.querySelector('#avatarForm');
 export const profileForm = document.querySelector('#profileForm');
 export const cardForm = document.querySelector('#cardForm');
 
+export const validationAvatar = new FormValidator(settingsOfValidation, avatarForm);
 export const validationProfile = new FormValidator(settingsOfValidation, profileForm);
 export const validationCard = new FormValidator(settingsOfValidation, cardForm);
 
-export const initialCards = [
-{
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-},
-{
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-},
-{
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-},
-{
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-},
-{
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-},
-{
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-}
-]; 
+// export const initialCards = [
+// {
+//     name: 'Архыз',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+// },
+// {
+//     name: 'Челябинская область',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+// },
+// {
+//     name: 'Иваново',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+// },
+// {
+//     name: 'Камчатка',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+// },
+// {
+//     name: 'Холмогорский район',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+// },
+// {
+//     name: 'Байкал',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+// }
+// ]; 
 
 export const cardTemplate = document.querySelector('#cardTemplate').content;
 
