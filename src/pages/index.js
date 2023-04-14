@@ -8,7 +8,8 @@ import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';
 import { UserInfo } from "../components/UserInfo.js";
 import { Section } from "../components/Section.js";
 
-import { addSaving, removeSaving, removeSavingCard, removeSavingConfirmation} from '../utils/utils.js';
+import { paintLike, unpaintLike } from '../utils/utils.js';
+//import { addSaving, removeSaving, removeSavingCard, removeSavingConfirmation} from '../utils/utils.js';
 import { addButton, editButton, avatarButton} from '../utils/utils.js';
 import { profileNameInput, profileJobInput } from '../utils/utils.js';
 import { avatar, name, job } from '../utils/utils.js';
@@ -16,6 +17,9 @@ import { validationCard, validationProfile, validationAvatar } from '../utils/ut
 //import { initialCards } from '../utils/utils.js';
 import { cardTemplate } from '../utils/utils.js';
 import { Api } from '../components/Api.js';
+import { contentButtonProfile, contentButtonAddCard, contentButtonDeleteCard } from '../utils/consts.js';
+import { toggleLoading } from '../utils/utils.js';
+import { buttonSubmitDeleteCard, buttonSubmitAddCard, buttonSubmitAvatar, buttonSubmitProfile } from '../utils/consts.js';
 
 const popupWithImage = new PopupWithImage('.img-popup');
 popupWithImage.setEventListeners();
@@ -37,15 +41,50 @@ function createCard(item) {
     cardTemplate,
     handleCardClick,
 
-    {addCardLike: (item) => {
-      return api.addCardLike(item);
+    {handleLikeClick: () => {
+      api.addCardLike(item._id)
+
+          .then(({likes}) => {
+              card.setLikeCount(item.likes.length = likes.length);
+          })
+
+          .catch((err) => console.log(err))
     },
 
-    deleteCardLike: (item) => {
-      return api.deleteCardLike(item);
-    }},
+    handleDeleteLikeClick: () => {
+      api.deleteCardLike(item._id)
+
+          .then(({likes}) => {
+              card.setLikeCount(item.likes.length = likes.length);
+          })
+
+          .catch((err) => console.log(err))
+     }},
+
     userId,
-    deleteCard
+
+    {handleDeleteCard: (cardElem) => {
+      deleteCardPopup.setSubmit(() => {
+        toggleLoading(buttonSubmitDeleteCard, contentButtonDeleteCard, true)
+          api.deleteCard(item._id)
+
+              .then(({_id}) => {
+                  cardElem.deleteElementCard()
+                  // deleteCardPopup.closePopup();
+              })
+
+              .catch((err) => console.log(err))
+
+              .finally(() => {
+                toggleLoading(buttonSubmitDeleteCard, contentButtonDeleteCard, false)
+              });
+      })
+
+      deleteCardPopup.openPopup();
+  }},
+
+    paintLike,
+    unpaintLike,
   );
   
   return card.generateCard(item);
@@ -68,8 +107,8 @@ const userInfo = new UserInfo({
 //popupProfile - Попап Профиля пользователя
 const popupProfile = new PopupWithForm( { popupSelector: '.profile-popup',
 
-  submitHandler: (data, button) => {
-    addSaving(button);
+  submitHandler: (data) => {
+    toggleLoading(buttonSubmitProfile, contentButtonProfile, true)
     api.editProfile(data)
 
       .then((res) => {
@@ -80,7 +119,7 @@ const popupProfile = new PopupWithForm( { popupSelector: '.profile-popup',
       .catch((err) => console.log(err))
 
       .finally(() => {
-        removeSaving(button);
+        toggleLoading(buttonSubmitProfile, contentButtonProfile, false)
       });
   },
 });
@@ -99,8 +138,8 @@ editButton.addEventListener("click", () => {
 //popupCard Попап добавления карточки
 const popupCard = new PopupWithForm( { popupSelector: '.add-popup',
 
-  submitHandler: (data, button) => {
-    addSaving(button);
+  submitHandler: (data) => {
+    toggleLoading(buttonSubmitAddCard, contentButtonAddCard, true)
 
     const item = {
       name: data.name,
@@ -117,7 +156,7 @@ const popupCard = new PopupWithForm( { popupSelector: '.add-popup',
       .catch((err) => console.log(err))
 
       .finally(() => {
-        removeSavingCard(button);
+        toggleLoading(buttonSubmitAddCard, contentButtonProfile, false)
       });
   },
 });
@@ -131,8 +170,8 @@ addButton.addEventListener("click", () => {
 //PopupAvatar - Попап с редактированием Аватара
 const popupAvatar = new PopupWithForm( { popupSelector: '.avatar-popup',
 
-  submitHandler: (data, button) => {
-    addSaving(button);
+  submitHandler: (data) => {
+    toggleLoading(buttonSubmitAvatar, contentButtonProfile, true)
     api.editAvatar(data)
 
       .then((res) => {
@@ -143,7 +182,7 @@ const popupAvatar = new PopupWithForm( { popupSelector: '.avatar-popup',
       .catch((err) => console.log(err))
 
       .finally(() => {
-        removeSaving(button);
+        toggleLoading(buttonSubmitAvatar, contentButtonProfile, false)
       });
   },
 });
@@ -157,28 +196,43 @@ avatarButton.addEventListener("click", () => {
 });
 
 //PopupWithConfirmation - Попап с подтверждением удаления карточки
-const deleteCard = (data) => {
-  deleteCardPopup.data = data;
-  deleteCardPopup.openPopup();
-};
+// function deleteCard(button) {
+//   console.log(button);
+//   api.deleteCard(data.cardId)
 
-const deleteCardPopup = new PopupWithConfirmation( { popupSelector: '.confirm-popup',
-  submitHandler: (data, button) => {
-    addSaving(button);
-    api.deleteCard(data.cardId)
+//     .then(() => {
+//       data.card.remove();
+//       deleteCardPopup.closePopup();
+//     })
 
-      .then(() => {
-        data.card.remove();
-        deleteCardPopup.closePopup();
-      })
+//     .catch((err) => console.log(err))
 
-      .catch((err) => console.log(err))
+//     .finally(() => {
+//       removeSavingConfirmation(button);
+//     });
+// };
 
-      .finally(() => {
-        removeSavingConfirmation(button);
-      });
-  },
-});
+// submitHandler: (button, _id) => {
+//   //console.log(button.previousElementSibling);
+//   addSaving(button);
+
+//   api.deleteCard(_id)
+
+//   .then(() => {
+//     //data.card.remove();
+//     cardElement.removeCard
+//     deleteCardPopup.closePopup();
+//   })
+
+//   .catch((err) => console.log(err))
+
+//   .finally(() => {
+//     removeSavingConfirmation(button);
+//   });
+// };
+
+
+const deleteCardPopup = new PopupWithConfirmation( {popupSelector: '.confirm-popup'} );
 deleteCardPopup.setEventListeners();
 
 //Промис - Создание промиса на запросы Api

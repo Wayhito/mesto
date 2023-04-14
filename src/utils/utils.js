@@ -13,21 +13,50 @@ import { FormValidator } from "../components/FormValidator.js";
 // import { initialCards } from './Utils.js';
 // import { cardTemplate } from './Utils.js';
 
-export function addSaving(elem) {
-    elem.textContent = "Сохранение...";
+export function paintLike(evt) {
+    this._addCardLike(this._cardId)
+    .then((res) => {
+        // this._item = res;
+        this._likeCounter.textContent = res.likes.length;
+        evt.target.classList.add("element__like_active");
+    })
+    .catch((err) => console.log(err));
 }
+
+export function unpaintLike(evt) {
+    this._deleteCardLike(this._cardId)
+    .then((res) => {
+        //this._item = res;
+        this._likeCounter.textContent = res.likes.length;
+        evt.target.classList.remove("element__like_active");
+    })
+    .catch((err) => console.log(err));
+}
+
+export function toggleLoading(buttonSubmit, content, isLoading) {
+    if (isLoading) {
+        buttonSubmit.textContent = content.loading;
+    } else {
+        buttonSubmit.textContent = content.start;
+    }
+}
+
+
+// export function addSaving(elem) {
+//     elem.textContent = "Сохранение...";
+// }
   
-export function removeSaving(elem) {
-    elem.textContent = "Сохранить";
-}
+// export function removeSaving(elem) {
+//     elem.textContent = "Сохранить";
+// }
 
-export function removeSavingConfirmation(elem) {
-    elem.textContent = "Да";
-}
+// export function removeSavingConfirmation(elem) {
+//     elem.textContent = "Да";
+// }
 
-export function removeSavingCard(elem) {
-    elem.textContent = "Создать";
-}
+// export function removeSavingCard(elem) {
+//     elem.textContent = "Создать";
+// }
 
 export const settingsOfValidation = {
     formSelector: '.popup__form',
