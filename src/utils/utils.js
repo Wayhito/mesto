@@ -13,25 +13,25 @@ import { FormValidator } from "../components/FormValidator.js";
 // import { initialCards } from './Utils.js';
 // import { cardTemplate } from './Utils.js';
 
-export function paintLike(evt) {
-    this._addCardLike(this._cardId)
-    .then((res) => {
-        // this._item = res;
-        this._likeCounter.textContent = res.likes.length;
-        evt.target.classList.add("element__like_active");
-    })
-    .catch((err) => console.log(err));
-}
+// export function paintLike(evt) {
+//     this._addCardLike(this._cardId)
+//     .then((res) => {
+//         // this._item = res;
+//         this._likeCounter.textContent = res.likes.length;
+//         evt.target.classList.add("element__like_active");
+//     })
+//     .catch((err) => console.log(err));
+// }
 
-export function unpaintLike(evt) {
-    this._deleteCardLike(this._cardId)
-    .then((res) => {
-        //this._item = res;
-        this._likeCounter.textContent = res.likes.length;
-        evt.target.classList.remove("element__like_active");
-    })
-    .catch((err) => console.log(err));
-}
+// export function unpaintLike(evt) {
+//     this._deleteCardLike(this._cardId)
+//     .then((res) => {
+//         //this._item = res;
+//         this._likeCounter.textContent = res.likes.length;
+//         evt.target.classList.remove("element__like_active");
+//     })
+//     .catch((err) => console.log(err));
+// }
 
 export function toggleLoading(buttonSubmit, content, isLoading) {
     if (isLoading) {

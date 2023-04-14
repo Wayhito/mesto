@@ -1,6 +1,6 @@
 export class Card { 
 
-    constructor (item, cardTemplate, handleCardClick, {handleLikeClick, handleDeleteLikeClick}, userId, {handleDeleteCard}, paintLike, unpaintLike) {
+    constructor (item, cardTemplate, handleCardClick, {handleLikeClick, handleDeleteLikeClick}, userId, {handleDeleteCard}) {
         this._handleCardClick = handleCardClick;
         this._item = item;
         this._name = item.name;
@@ -13,8 +13,6 @@ export class Card {
         this._userId = userId;
         this._cardOwnerId = this._item.owner._id
         this._handleDeleteCard = handleDeleteCard;
-        this._paintLike = paintLike.bind(this);
-        this._unpaintLike = unpaintLike.bind(this);
     }
 
     _getElement() {

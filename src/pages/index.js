@@ -8,7 +8,6 @@ import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';
 import { UserInfo } from "../components/UserInfo.js";
 import { Section } from "../components/Section.js";
 
-import { paintLike, unpaintLike } from '../utils/utils.js';
 //import { addSaving, removeSaving, removeSavingCard, removeSavingConfirmation} from '../utils/utils.js';
 import { addButton, editButton, avatarButton} from '../utils/utils.js';
 import { profileNameInput, profileJobInput } from '../utils/utils.js';
@@ -82,9 +81,6 @@ function createCard(item) {
 
       deleteCardPopup.openPopup();
   }},
-
-    paintLike,
-    unpaintLike,
   );
   
   return card.generateCard(item);
