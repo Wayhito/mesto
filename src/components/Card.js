@@ -59,12 +59,12 @@ export class Card {
     }
 
     _dislike() {
-        this._removeLikedClass();
+        //this._removeLikedClass();
         this._handleDeleteLikeClick(this._likes);
     }
     
     _like() {
-        this._addLikedClass();
+        //this._addLikedClass();
         this._handleLikeClick(this._likes);
     }
 

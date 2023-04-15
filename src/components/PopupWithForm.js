@@ -10,6 +10,14 @@ export class PopupWithForm extends Popup {
         this._submitButton = this._formElement.querySelector('.popup__submit');
     }
 
+    toggleLoading(content, isLoading) {
+        if (isLoading) {
+            this._submitButton.textContent = content.loading;
+        } else {
+            this._submitButton.textContent = content.start;
+        }
+    }
+
     _getInputValues() {
         const inputValues = {};
         this._inputList.forEach(input => {

@@ -8,6 +8,14 @@ export class PopupWithConfirmation extends Popup {
         this._submitButton = this._formElement.querySelector('.popup__submit');
     } 
 
+    toggleLoading(content, isLoading) {
+        if (isLoading) {
+            this._submitButton.textContent = content.loading;
+        } else {
+            this._submitButton.textContent = content.start;
+        }
+    }
+
     setSubmit(submitHandler){
         this._submitHandler =  submitHandler;
    }
@@ -17,7 +25,6 @@ export class PopupWithConfirmation extends Popup {
         this._formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this._submitHandler();
-            this.closePopup();
         });
     }
 }

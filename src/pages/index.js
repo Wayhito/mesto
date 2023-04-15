@@ -17,7 +17,7 @@ import { validationCard, validationProfile, validationAvatar } from '../utils/ut
 import { cardTemplate } from '../utils/utils.js';
 import { Api } from '../components/Api.js';
 import { contentButtonProfile, contentButtonAddCard, contentButtonDeleteCard } from '../utils/consts.js';
-import { toggleLoading } from '../utils/utils.js';
+//import { toggleLoading } from '../utils/utils.js';
 import { buttonSubmitDeleteCard, buttonSubmitAddCard, buttonSubmitAvatar, buttonSubmitProfile } from '../utils/consts.js';
 
 const popupWithImage = new PopupWithImage('.img-popup');
@@ -44,6 +44,7 @@ function createCard(item) {
       api.addCardLike(item._id)
 
           .then(({likes}) => {
+              card._addLikedClass();
               card.setLikeCount(item.likes.length = likes.length);
           })
 
@@ -54,6 +55,7 @@ function createCard(item) {
       api.deleteCardLike(item._id)
 
           .then(({likes}) => {
+              card._removeLikedClass();
               card.setLikeCount(item.likes.length = likes.length);
           })
 
@@ -64,18 +66,18 @@ function createCard(item) {
 
     {handleDeleteCard: (cardElem) => {
       deleteCardPopup.setSubmit(() => {
-        toggleLoading(buttonSubmitDeleteCard, contentButtonDeleteCard, true)
+        deleteCardPopup.toggleLoading(contentButtonDeleteCard, true)
           api.deleteCard(item._id)
 
               .then(({_id}) => {
                   cardElem.deleteElementCard()
-                  // deleteCardPopup.closePopup();
+                  deleteCardPopup.closePopup();
               })
 
               .catch((err) => console.log(err))
 
               .finally(() => {
-                toggleLoading(buttonSubmitDeleteCard, contentButtonDeleteCard, false)
+                deleteCardPopup.toggleLoading(contentButtonDeleteCard, false)
               });
       })
 
@@ -104,7 +106,7 @@ const userInfo = new UserInfo({
 const popupProfile = new PopupWithForm( { popupSelector: '.profile-popup',
 
   submitHandler: (data) => {
-    toggleLoading(buttonSubmitProfile, contentButtonProfile, true)
+    popupProfile.toggleLoading(contentButtonProfile, true)
     api.editProfile(data)
 
       .then((res) => {
@@ -115,7 +117,7 @@ const popupProfile = new PopupWithForm( { popupSelector: '.profile-popup',
       .catch((err) => console.log(err))
 
       .finally(() => {
-        toggleLoading(buttonSubmitProfile, contentButtonProfile, false)
+        popupProfile.toggleLoading(contentButtonProfile, false)
       });
   },
 });
@@ -135,7 +137,7 @@ editButton.addEventListener("click", () => {
 const popupCard = new PopupWithForm( { popupSelector: '.add-popup',
 
   submitHandler: (data) => {
-    toggleLoading(buttonSubmitAddCard, contentButtonAddCard, true)
+    popupCard.toggleLoading(contentButtonAddCard, true)
 
     const item = {
       name: data.name,
@@ -152,7 +154,7 @@ const popupCard = new PopupWithForm( { popupSelector: '.add-popup',
       .catch((err) => console.log(err))
 
       .finally(() => {
-        toggleLoading(buttonSubmitAddCard, contentButtonProfile, false)
+        popupCard.toggleLoading(contentButtonProfile, false)
       });
   },
 });
@@ -167,7 +169,7 @@ addButton.addEventListener("click", () => {
 const popupAvatar = new PopupWithForm( { popupSelector: '.avatar-popup',
 
   submitHandler: (data) => {
-    toggleLoading(buttonSubmitAvatar, contentButtonProfile, true)
+    popupAvatar.toggleLoading(contentButtonProfile, true)
     api.editAvatar(data)
 
       .then((res) => {
@@ -178,7 +180,7 @@ const popupAvatar = new PopupWithForm( { popupSelector: '.avatar-popup',
       .catch((err) => console.log(err))
 
       .finally(() => {
-        toggleLoading(buttonSubmitAvatar, contentButtonProfile, false)
+        popupAvatar.toggleLoading(contentButtonProfile, false)
       });
   },
 });
