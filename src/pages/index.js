@@ -44,8 +44,9 @@ function createCard(item) {
       api.addCardLike(item._id)
 
           .then(({likes}) => {
+              const LikeMassive = likes.length;
               card._addLikedClass();
-              card.setLikeCount(item.likes.length = likes.length);
+              card.setLikeCount(LikeMassive);
           })
 
           .catch((err) => console.log(err))
@@ -55,8 +56,10 @@ function createCard(item) {
       api.deleteCardLike(item._id)
 
           .then(({likes}) => {
+              const LikeMassive = likes.length;
               card._removeLikedClass();
-              card.setLikeCount(item.likes.length = likes.length);
+              card.setLikeCount(LikeMassive);
+              //card.setLikeCount(item.likes.length = likes.length);
           })
 
           .catch((err) => console.log(err))

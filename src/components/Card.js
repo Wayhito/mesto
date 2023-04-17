@@ -54,17 +54,16 @@ export class Card {
         this._likeButton.classList.add('element__like_active');
     }
 
-    setLikeCount() {
-        this._likeCounter.textContent = String(this._likes.length)
+    setLikeCount(likes) {
+        console.log(likes);
+        this._likeCounter.textContent = String(likes);
     }
 
     _dislike() {
-        //this._removeLikedClass();
         this._handleDeleteLikeClick(this._likes);
     }
     
     _like() {
-        //this._addLikedClass();
         this._handleLikeClick(this._likes);
     }
 
@@ -95,7 +94,7 @@ export class Card {
 
         this._likeButton = this._element.querySelector('.element__like');
         this._likeCounter = this._element.querySelector(".element__like-counter");
-        this.setLikeCount()
+        this.setLikeCount(this._likes.length);
         this._checkLiked()
 
         this._deleteButton = this._element.querySelector(".element__remove");
